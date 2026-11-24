@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --font-display: "Space Grotesk", "JetBrains Mono", sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    background-color: #f4f6fb;
+    color: #14192e;
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+/* 海报级 鱼池中转 金色描边字效 */
+.brand-gold-stroke {
+  color: #151b3b;
+  -webkit-text-stroke: 2px #e2be70;
+  paint-order: stroke fill;
+  text-shadow: 0 3px 0 rgba(20, 25, 46, 0.14);
+}
+
+/* 切角金色标签（对应海报：国内网络直连 / 模型 01） */
+.chamfer-badge {
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+
+/* 透明 PNG 检视棋盘格 */
+.alpha-checkerboard {
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(45deg, #e7ebf4 25%, transparent 25%),
+    linear-gradient(-45deg, #e7ebf4 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #e7ebf4 75%),
+    linear-gradient(-45deg, transparent 75%, #e7ebf4 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+}
+
+/* 慢速星盘旋转（克制低幅度） */
+@keyframes astrolabe-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes astrolabe-spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-astrolabe-slow {
+  animation: astrolabe-spin 90s linear infinite;
+}
+
+.animate-astrolabe-reverse {
+  animation: astrolabe-spin-reverse 64s linear infinite;
+}
+
+/* 极简自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0c1029;
+}
+::-webkit-scrollbar-thumb {
+  background: #2d3b7a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e2be70;
+}
